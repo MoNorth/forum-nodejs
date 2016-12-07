@@ -24,5 +24,8 @@ export default {
 </script>
 
 <style>
-
+  @import './static/lib/reset.css';
+  #content{
+    height: 1000px;
+  }
 </style>
