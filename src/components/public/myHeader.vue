@@ -1,3 +1,9 @@
+/**
+* Create by northk
+* 2016/12/7
+**/
+
+
 <template>
   <div class="my_header">
     <nav class="header_nav">
@@ -36,6 +42,7 @@
     }
 	}
 </script>
+
 <style>
   .my_header {
     width: 100%;

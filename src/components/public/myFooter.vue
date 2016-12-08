@@ -1,3 +1,8 @@
+/**
+* Create by northk
+* 2016/12/7
+**/
+
 <template>
   <div class="my_footer">
     <p class="footer_logo">论坛</p>
