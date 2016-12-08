@@ -4,34 +4,43 @@
 **/
 
 <template>
-	<footer class="footer">
-		<p class="left">@{{time}} 3G论坛</p>
-		<p class="right">
-			<a href="https://github.com/MoNorth/forum-nodejs">Github·MoNorth</a> |
-			<a href="http://xiyoumobile.com/">西邮移动应用开发实验室</a> |
-			<a href="http://www.xiyou.edu.cn/">西安邮电大学</a>
-		</p>
-	</footer>
+  <div class="my_footer">
+    <p class="footer_logo">论坛</p>
+    <ul class="footer_right">
+      <li>加入我们</li>
+      <li>建议反馈</li>
+      <li>联系我们</li>
+    </ul>
+  </div>
 </template>
 
 <script>
-	export default {
-	  name: 'myfooter',
-	  data () {
-	    return {
-	      time: new Date().getFullYear()
-	    }
-	  }
-	}
+  export default {
+    name: 'myfooter'
+  }
 </script>
 
-<style lang="less">
-	@color:#ccc;
-	.footer{
-		color: @color - 80;
-		width: 80%;
-		margin: 3rem auto;
-		border-top: 2px solid @color;
-		padding: 2rem;
-	}
+<style>
+  .my_footer{
+    width: 60%;
+    margin: 100px auto;
+    background-color: #fff;
+    border-top: 2px solid #00BCD4;
+    padding-top: 20px;
+  }
+  .footer_logo {
+    margin-left: 3%;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .footer_right {
+    color: #999999;
+    list-style-type: none;
+    display: inline-block;
+    float: right;
+  }
+  .footer_right li {
+    cursor: pointer;
+    display: inline-block;
+  }
 </style>
