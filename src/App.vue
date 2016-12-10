@@ -4,145 +4,18 @@
 
     <div id="content">
     hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
-      hello world<br/>
+    <table class="table">
+          <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+          </tr>
+          <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+          </tr>
+    </table>
     </div>
 
     <myfooter></myfooter>
@@ -168,6 +41,6 @@ export default {
 </script>
 
 <style>
-  @import './static/lib/reset.css';
+  
 
 </style>

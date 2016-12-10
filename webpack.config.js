@@ -11,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -23,7 +27,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg|css)$/,
+        test: /\.(png|jpg|gif|svg|woff|ttf|woff2|eot)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -33,9 +37,16 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.common.js',
+      'jquery': 'jquery'
     }
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     noInfo: true
