@@ -3,22 +3,11 @@
     <myheader></myheader>
 
     <div id="content">
-    hello world<br/>
-    <table class="table">
-          <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-          </tr>
-          <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-          </tr>
-    </table>
+      <classification></classification>
+    
     </div>
 
-    <myfooter></myfooter>
+    <myfooter :class="data.className"></myfooter>
     <backtop></backtop>
   </div>
 </template>
@@ -28,13 +17,25 @@
 import myHeader from './components/public/myHeader.vue'
 import myFooter from './components/public/myFooter.vue'
 import Backtop from './components/public/Backtop.vue'
+import Classification from './components/index/Hotpost.vue'
+
+
+let data = {
+      className : "qqq"
+}
 
 export default {
   name: 'app',
   components: {
     myheader : myHeader,
     myfooter : myFooter,
-    backtop : Backtop
+    backtop : Backtop,
+    classification : Classification
+  },
+  data () {
+      return {
+            data : data
+      }
   }
   
 }
