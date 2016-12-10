@@ -7,7 +7,7 @@
     
     </div>
 
-    <myfooter></myfooter>
+    <myfooter :class="data.className"></myfooter>
     <backtop></backtop>
   </div>
 </template>
@@ -19,6 +19,11 @@ import myFooter from './components/public/myFooter.vue'
 import Backtop from './components/public/Backtop.vue'
 import Classification from './components/index/Hotpost.vue'
 
+
+let data = {
+      className : "qqq"
+}
+
 export default {
   name: 'app',
   components: {
@@ -26,6 +31,11 @@ export default {
     myfooter : myFooter,
     backtop : Backtop,
     classification : Classification
+  },
+  data () {
+      return {
+            data : data
+      }
   }
   
 }
