@@ -91,6 +91,7 @@
     padding: 0 2%;
     text-decoration: none;
     border-radius: 2px;
+    color: #fff;
   }
   .header_nav_a:hover {
     background: #00BDCC;
