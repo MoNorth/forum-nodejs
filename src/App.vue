@@ -3,7 +3,7 @@
     <myheader></myheader>
 
     <div id="content">
-      <classification></classification>
+      <classification :empty="data.empty" :baseHeight="true"></classification>
     
     </div>
 
@@ -17,11 +17,12 @@
 import myHeader from './components/public/myHeader.vue'
 import myFooter from './components/public/myFooter.vue'
 import Backtop from './components/public/Backtop.vue'
-import Classification from './components/index/Hotpost.vue'
+import Classification from './components/public/Loading.vue'
 
 
 let data = {
-      className : "qqq"
+      className : "qqq",
+      empty : false
 }
 
 export default {
@@ -39,9 +40,14 @@ export default {
   }
   
 }
+
+setTimeout(() => data.empty = true, 5000)
 </script>
 
 <style>
-  
+  #content{
+      width: 200px;
+      height: 100px;
+  }
 
 </style>
