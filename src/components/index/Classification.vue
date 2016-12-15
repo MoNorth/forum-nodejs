@@ -1,144 +1,135 @@
 /**
 * 话题分类
-* Create by glt
+* Created by glt
 * 2016/12/9
 **/
 
 <template>
   <div class="classification">
     <p>话题分类</p>
-    <ul @click.prevent>
-      <li v-for="classify in classifies">
-        <div><img v-bind:src="classify.imgurl" v-on:click="enterClassify(classify.addurl)"></div>
-        <span v-on:click="enterClassify(classify.addurl)">{{classify.name}}</span>
-        <p v-on:click="enterClassify(classify.addurl)">{{classify.intro}}</p>
+    <span>换一批</span>
+    <!-- <router-link tag="span" to="#">换一批</router-link> -->
+    <ul>
+      <li v-for="classify in data.classifies">
+        <!-- <div><router-link src="../../static/images/classify.png"></router-link></div> -->
+        <!-- <router-link tag="span" to="#">{{classify.name}}</router-link> -->
+        <!-- <router-link tag="p" to="#">{{classify.intro}}</router-link> -->
+        <div><img src="../../static/images/classify.png"></div>
+        <span>{{classify.name}}</span>
+        <p>{{classify.intro}}</p>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+  let data = {
+    classifies : [
+      {
+        name : '运动',
+        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
+        imgurl : '',
+        addurl : ''
+      },
+      {
+        name : '娱乐',
+        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
+        imgurl : '',
+        addurl : '/entertainment'
+      },
+      {
+        name : '健身',
+        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
+        imgurl : '',
+        addurl : '/exercise'
+      },
+      {
+        name : '养生',
+        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
+        imgurl : '',
+        addurl : '/health'
+      },
+      {
+        name : '阅读',
+        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
+        imgurl : '',
+        addurl : '/read'
+      }
+    ]
+  }
   export default {
     name: 'classification',
     data() {
       return {
-        classifies : [
-          {
-            name : '运动',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/classify.png',
-            addurl : '#'
-          },
-          {
-            name : '娱乐',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/entertainment.png',
-            addurl : '#'
-          },
-          {
-            name : '健身',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/entertainment.png',
-            addurl : '#'
-          },
-          {
-            name : '养生',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/entertainment.png',
-            addurl : '#'
-          },
-          {
-            name : '阅读',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/entertainment.png',
-            addurl : '#'
-          },
-          {
-            name : '娱乐',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/classify.png',
-            addurl : '#'
-          },
-          {
-            name : '健身',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/classify.png',
-            addurl : '#'
-          },
-          {
-            name : '养生',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/classify.png',
-            addurl : '#'
-          },
-          {
-            name : '阅读',
-            intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-            imgurl : '../../static/images/classify.png',
-            addurl : '#'
-          }
-        ]
-      }
-    },
-    methods : {
-      enterClassify(addurl) {
-        window.location.href = addurl;
+        data : data
       }
     }
   }
 </script>
 
 <style lang="less">
-  @color: #00BDCC;
   .classification {
-    width: 15%;
-    background-color: #F3F3F3;
-    float: left;
+    @color: #9C9E9D;
+    @hovercolor: #00BDCC;
+    @font-size: 14px;
+    width: 20%;
+    background-color: #F4F4F4;
+    min-width: 270px;
     >p {
-      font-size: 20px;
+      color: @color - 20;
+      font-size: @font-size + 5;
       font-weight:  bolder;
-      text-align: center;
+      padding-left: 2%;
+      margin-right: 3%;
       line-height: 40px;
-      border-bottom:  1px solid #00BBCB;
+      float: left;
+      &:hover{
+        border-left:  3px solid #00BBCB;
+      }
+    }
+    >span {
+      font-size: @font-size - 1;
+      cursor: pointer;
+      line-height: 40px;
+      color: #ABABAB;
     }
     ul {
+      clear: both;
       display: block;
+      list-style-type: none;
+      padding: 0;
       li {
         clear: both;
-        border-bottom: 1px solid #00BBCB;
         padding: 2%;
-        margin-bottom: 3px;
-        text-indent: 16px;
+        margin-bottom: 10px;
         div {
-          width: 25%;
-          height: 50px;
-          line-height: 50px;
+          width: 15%;
+          height: 43px;
+          line-height: 43px;
           float: left;
-          padding: auto 3%;
-          border: 1px solid #ccc;
+          margin-right: 3%;
           img {
-            width: 97%;
-            cursor: pointer;
+            height: 43px;
           }
         }
         span {
+          font-size: @font-size + 3;
           line-height: 25px;
           font-weight: bolder;
           display: block;
           cursor: pointer;
+          color: @color;
           &:hover {
-            color: @color;
+            color: @hovercolor;
           }
         }
         p {
-          font-size: 13px;
-          word-break: break-all;
+          font-size: @font-size - 1;
+          word-break: keep-all;
           text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
           overflow: hidden;
           cursor: pointer;
+          color: @color - 5;
         }
       }
     }
