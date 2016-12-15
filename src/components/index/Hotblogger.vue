@@ -1,127 +1,292 @@
 /**
 * 推荐博主
-* Create by glt
+* Created by glt
 * 2016/12/10
 **/
 
 <template>
   <div class="hotblogger">
-    <p>推荐博主</p>
-    <ul @click.prevent>
-      <li v-for="blogger in bloggers">
-        <div><img v-bind:src="blogger.imgurl" v-on:click="enterblogger(blogger.bloggerurl)"></div>
+    <ul class="bloggerClasses">
+      <li class="bloggerClasses_li" :class="{'hotblogger_li_this':bloggerClass.active}" v-for="bloggerClass in data.bloggerClasses" @click="makeActive(bloggerClass)">
+        <a href="javascript:void(0);" :class="{'hotblogger_a_this':bloggerClass.active}">{{bloggerClass.name}}</a>
+      </li>
+    </ul>
+    <ul class="bloggers" @click.prevent>
+      <li v-if="data.thisbloggerClass.active" v-for="blogger in data.thisbloggerClass.bloggers">
+        <div><img src="../../static/images/head.jpg" v-on:click="enterblogger(blogger.bloggerurl)"></div>
+        <p class="fansnum">{{blogger.fansnum}}个粉丝</p>
         <span v-on:click="enterblogger(blogger.bloggerurl)">{{blogger.name}}</span>
-        <p v-on:click="enterblogger(blogger.bloggerurl)">{{blogger.classify}}类话题活跃</p>
+        <p class="articlenum">{{blogger.articlenum}}个帖子</p>
       </li>
     </ul>
   </div>
 </template>
-
 <script>
+  let data = {
+    bloggerClasses : [
+      {
+        name : '发帖巨人',
+        active : true,
+        bloggers : [
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          }
+        ]
+      },
+      {
+        name : '神评侠',
+        active : false,
+        bloggers : [
+          {
+            name : '喜羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '喜羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '喜羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '喜羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '喜羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          }
+        ]
+      },
+      {
+        name : '人气队长',
+        active : false,
+        bloggers : [
+          {
+            name : '懒羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '懒羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '懒羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '懒羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '懒羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          }
+        ]
+      }
+    ],
+    thisbloggerClass : 
+      {
+        name : '发帖巨人',
+        active : true,
+        bloggers : [
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          },
+          {
+            name : '美羊羊',
+            classify : '运动',
+            imgurl : '',
+            bloggerurl : '#',
+            articlenum : 3,
+            fansnum : 30
+          }
+        ]
+      }
+  }
   export default {
     name: 'hotblogger',
     data() {
       return {
-        bloggers : [
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/classify.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/entertainment.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/entertainment.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/entertainment.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/entertainment.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/classify.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/classify.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/classify.png',
-            bloggerurl : '#'
-          },
-          {
-            name : '杨小杨',
-            classify : '运动',
-            imgurl : '../../static/images/classify.png',
-            bloggerurl : '#'
-          }
-        ]
+        data : data
       }
     },
     methods : {
+      makeActive(bloggerClass) {
+        this.active = bloggerClass.name;
+        for (let i = 0; i < this.data.bloggerClasses.length; i++) {
+          this.data.bloggerClasses[i].active = false;
+        }
+        bloggerClass.active = true;
+        data.thisbloggerClass = bloggerClass;
+      },
       enterblogger(bloggerurl) {
-        window.location.href = bloggerurl;
       }
     }
   }
 </script>
 
 <style lang="less">
-  @color: #00BDCC;
   .hotblogger {
-    width: 15%;
-    background-color: #F3F3F3;
-    float: right;
-    >p {
-      font-size: 20px;
-      font-weight:  bolder;
-      text-align: center;
-      line-height: 40px;
-      border-bottom:  1px solid #00BBCB;
+    @color: #00BDCC;
+    @fontColor: #9C9E9D;
+    @font-size: 14px;
+    width: 25%;
+    height: 355px;
+    overflow: hidden;
+    border-top: 1px solid #E7E7E7;
+    .bloggerClasses {
+      padding: 0;
+      .bloggerClasses_li {
+        display: inline-block;
+        width: 33.3333%;
+        font-size: @font-size + 3;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 35px;
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+        .hotblogger_a_this {
+          display: inline-block;
+          color: @color;
+          border-bottom: 1px solid #69C2F3;
+        }
+      }
+      .hotblogger_li_this {
+      }
     }
-    ul {
+    .bloggers {
       display: block;
+      list-style-type: none;
+      padding: 0;
       li {
         clear: both;
-        border-bottom: 1px solid #00BBCB;
         padding: 2%;
-        margin-bottom: 3px;
-          text-indent: 16px;
         div {
-          width: 25%;
+          /*width: 20%;*/
           height: 40px;
           line-height: 40px;
+          text-align: center;
           float: left;
-          padding: auto 3%;
-          border: 1px solid #ccc;
+          margin-right: 3%;
           img {
-            width: 97%;
+            height: 40px;
+            border-radius: 40px;
             cursor: pointer;
           }
         }
         span {
+          font-size: @font-size;
+          color: @fontColor - 30;
           line-height: 25px;
           font-weight: bolder;
           display: block;
@@ -130,15 +295,17 @@
             color: @color;
           }
         }
-        p {
-          font-size: 13px;
-          word-break: break-all;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          overflow: hidden;
+        .articlenum {
+          color: @fontColor;
+          font-size: @font-size - 2;
           cursor: pointer;
+        }
+        .fansnum {
+          color: @fontColor;
+          font-size: @font-size - 2;
+          cursor: pointer;
+          float: right;
+          line-height: 40px;
         }
       }
     }
