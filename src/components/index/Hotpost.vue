@@ -1,145 +1,196 @@
 /**
-* 热门帖子
-* Create by yxt
-* 2016/12/9
+* 登录
+* Created by yxt
+* 2016/12/12
 **/
 
 <template>
-  <div class="wrapper">
-    <h1>热门帖子</h1>
-    <div class="wrapper_module" v-for="list in lists">
-      <div class="wrapper_top">
-        <span>作者：<a @click="personal(list.author_id)">{{list.author}}</a></span>
-        <span class="classify">话题分类：<a @click="classes(list.group_id)">{{list.group}}</a></span>
-      </div>
-      <div class="wrapper_main">
-        <h2><a @click="article(list.article_id)">{{list.title}}</a></h2>
-        <article class="content">{{list.content}}</article>
-      </div>
-      <div class="wrapper_footer">
-        <span class="vote">赞({{list.votes}}) &nbsp;&nbsp;评论(<a @click="comment(list.article_id)">{{list.comments}}</a>)</span>
+  <div class="contain">
+    <div class="warp" v-for="list in data.list">
+      <div class="warp-left" title="回复">{{list.response}}</div>
+      <div class="warp-right">
+        <div class="title">
+          <h2>{{list.article_name}}</h2>
+          <p class="p"><span></span>{{list.author}}</p>
+        </div>
+        <div class="main">
+          <p>{{list.content}}</p>
+          <p class="p"><span></span>{{list.latest_reply}}</p>
+          <div class="images" v-if="list.img.attr">
+            <img :src="list.img.url">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</template>   
+</template>
 
 <script>
+
+  let data = {
+    list: [
+      {
+        response: 111,
+        article_name: '我的第一条正式帖',
+        article_id: 'oxks',
+        author: 'Esan讯粉',
+        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
+        latest_reply: '但依然有人也有',
+        img: {
+          attr: true,
+          url: '../../static/images/backtop.png'
+        }
+      },
+      {
+        response: 111,
+        article_name: '我的第一条正式帖',
+        article_id: 'oxks',
+        author: 'Esan讯粉',
+        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
+        latest_reply: '但依然有人也有',
+        img: {
+          attr: false,
+          url: ''
+        }
+      },
+      {
+        response: 111,
+        article_name: '我的第一条正式帖',
+        article_id: 'oxks',
+        author: 'Esan讯粉',
+        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
+        latest_reply: '但依然有人也有',
+        img: {
+          attr: false,
+          url: ''
+        }
+      }
+    ]
+  }
+
   export default {
     name: 'hotpost',
     data() {
       return {
-        lists: [
-          {
-            author: 'susan',
-            author_id: '0x',
-            group: '娱乐',
-            group_id: 'xcxcx',
-            article_id: 'cdcd',
-            title: '控制军木蜡木hi那么快看看',
-            content: 'ncskancjkdhvjrhegirhigf',
-            collect: false,
-            votes: 12,
-            comments: 555
-          },
-          {
-            author: 'susan',
-            author_id: '0d',
-            group: '娱乐',
-            group_id: 'xcfde',
-            article_id: 'mmm',
-            title: '控制军木蜡木hi那么快看看',
-            content: 'ncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigfncskancjkdhvjrhegirhigf',
-            collect: false,
-            votes: 12,
-            comments: 555
-          },
-          {
-            author: 'susan',
-            author_id: '0vc',
-            group: '娱乐',
-            group_id: 'xjjvfdnvx',
-            article_id: 'bbb',
-            title: '控制军木蜡木hi那么快看看',
-            content: 'ncskancjkdhvjrhegirhigf',
-            collect: false,
-            votes: 12,
-            comments: 555
-          }
-        ]
-      }
-    },
-    methods: {
-      personal(value) {
-        console.log(value);
-      },
-      classes(value) {
-        console.log(value);
-      },
-      article(value) {
-        console.log(value);
-      },
-      comment(value) {
-        console.log(value);
+        data: data
       }
     }
   }
 </script>
 
 <style lang="less">
-  @size: 1.4em;
-  @color: #00AACC;
-  @global_color: #000;
-  .mixin {
-    margin-bottom: 20px;
-  }
-  a {
-    &:hover {
-      color: @color;
-    }
-  }
-  .wrapper {
-    width: 60%;
-    margin: 0 auto;
-    font-size: @size;
-    color: @global_color;
-    h1 {
-      text-align: center;
-      font-size: 2em;
-      padding-bottom: 20px;
+  .contain {
+
+    //min-width: 680px;
+    width: 50%;
+    .clearfix {
+      *zoom: 1;
+
+      &:before, &:after { 
+        content: "";
+        display: table;
+      }
+
+      &:after {
+        clear: both;
+        overflow: hidden;
+      }
     }
 
-    .wrapper_module {
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .text {
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+
+    .mixin(@pos) {
+      .text;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5%;
+      background: url("../../static/images/icon.png") no-repeat 0 @pos;
+    }
+
+    .p {
+      font-size: 0.9em;
+      color: #999;
+      width: 14%;
+      padding-top: 16px;
+      cursor: pointer;
+      .right;
+      .text;
+    }
+
+    .warp {
+      .clearfix;
       width: 100%;
-      border-bottom: 2px solid #ccc;
-      .mixin;
-      padding: 10px;
-      .wrapper_top {
-        .mixin;
-        .classify {
-          margin-left: 60%;
-        }
+      border: 1px solid #ccc+30;
+      margin-bottom: 6px;
+      font-size: 1em;
+      font-family: '微软雅黑';
+      &:hover {
+        background-color: #f7f9fc;
       }
 
-      .wrapper_main {
-        .mixin; 
-        h2 {
-          font-size: 1.5em;
-          color: @color;
-        }
-        .content {
-          word-break: break-all;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3;
-          overflow: hidden;
-        }
+      .warp-left {
+        .left;
+        width: 50px;
+        height: 30px;
+        line-height: 26px;
+        text-align: center;
+        margin: 2.2%;
+        font-size: 0.8em;
+        background: url("../../static/images/pop.png") no-repeat;
+
       }
 
-      .wrapper_footer {
-        .mixin;
-        .vote {
-          margin-left: 67%;
+      .warp-right {
+        .left;
+        width: 80%;
+        .title {
+          .clearfix;
+          h2 {
+            .left;
+            .text;
+            font-size: 1.1em;
+            cursor: pointer;
+            color: #2d64b3;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          span {
+            .mixin(-10px);
+          }
+        }
+
+        .main {
+          p {
+            &:first-child {
+              width: 80%;
+              display: inline-block;
+              padding-top: 8px;
+              .text;
+            }
+            &:nth-child(2) {
+              display: inline-block;
+              margin-top: -8px;
+              .text;
+            }
+          }
+
+          span {
+            .mixin(0);
+          }
         }
       }
     }
