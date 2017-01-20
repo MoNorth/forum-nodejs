@@ -5,27 +5,27 @@
 **/
 
 <template>
-  <div class="wrapper" v-bind:class="{'border_line': data.showborder}">
+  <div class="wrapper" v-bind:class="{'border_line': data.list.showborder}">
     <div class="border-click" @click="toggle('showborder')">展示边框</div>
     <div class="header">
-      <img src="../../static/images/person.jpg" width="103px" height="107px">
+      <img src="" width="103px" height="107px">
     </div>
     <form class="form-panel">
-      <div class="form-group form-text" v-bind:class="{'focusbe': data.focususer, 'bluraf': !data.focususer}">
-        <input type="text" placeholder="请输入用户名..." @focus="toggle('focususer')" @blur="toggle('focususer')" v-model="data.username">
+      <div class="form-group form-text" v-bind:class="{'focusbe': data.list.focususer, 'bluraf': !data.list.focususer}">
+        <input type="text" placeholder="请输入用户名..." @focus="toggle('focususer')" @blur="toggle('focususer')" v-model="data.list.username">
       </div>
-      <div class="form-group form-text" v-bind:class="{'focusbe': data.focuspw, 'bluraf': !data.focuspw}">
-        <input type="password" placeholder="请输入密码..." @focus="toggle('focuspw')" @blur="toggle('focuspw')" v-model="data.password">
+      <div class="form-group form-text" v-bind:class="{'focusbe': data.list.focuspw, 'bluraf': !data.list.focuspw}">
+        <input type="password" placeholder="请输入密码..." @focus="toggle('focuspw')" @blur="toggle('focuspw')" v-model="data.list.password">
       </div>
       <div class="form-group form-check">
         <label title="为了确保你的安全，请不要在网吧或者公共机房勾选此项" @click="toggle('isBefore')">
-          <span  v-bind:class="{'remenber-before': data.isBefore, 'remenber-after': !data.isBefore}"></span>下次自动登录
+          <span  v-bind:class="{'remenber-before': data.list.isBefore, 'remenber-after': !data.list.isBefore}"></span>下次自动登录
         </label>
         <span class="getpassword">忘记密码?</span>
       </div>
       <div class="form-group form-button">
-        <button type="button" v-link="{name: '', params: {user: data.username}}">注&nbsp;册</button>
-        <button type="button" v-link="{name: '', params: {user: data.username}}">登&nbsp;录</button>
+        <router-link to="/register" tag="button">注&nbsp;册</router-link>
+        <router-link to="{path: 'personal', query: {username: data.list.username, password: data.list.password}}" tag="button">登&nbsp;录</router-link>
       </div>
     </form>
     <div class="third distance">
@@ -34,24 +34,19 @@
       <span class="right-line"></span>
     </div>
     <div class="method distance">
-      <span v-link="{name: ''}"></span>
-      <span v-link="{name: ''}"></span>
-      <span v-link="{name: ''}"></span>
+      <router-link to="/" tag="span"></router-link>
+      <router-link to="/" tag="span"></router-link>
+      <router-link to="/" tag="span"></router-link>
     </div>
   </div>
 </template>
 
 <script>
-
+  import getCGI from '../../getCGI/Login'
   let data = {
-    isBefore: true,
-    focususer: true,
-    focuspw: true,
-    showborder: true,
-    username: '',
-    password: ''
+    list: {}
   }
-
+  getCGI(data)
   export default {
     name: 'login',
 
@@ -78,7 +73,7 @@
       // }
 
       toggle(attr) {
-        this.data[attr] = !this.data[attr];
+        this.data.list[attr] = !this.data.list[attr];
       }
     }
   }
@@ -88,7 +83,8 @@
 <style lang="less">
   .wrapper {
     max-width: 400px;
-    min-width: 360px;
+    min-width: 270px;
+    background-color: #fff;
     .clearfix {
       *zoom: 1;
 
@@ -103,10 +99,11 @@
       }
     }
 
-    @url: "../../static/images/chat.png";
+    /*@url: "../../static/images/chat.png";*/
     
     width: 30%;
-    margin: 20px auto;
+    /*margin: 20px auto;*/
+    margin: 0 auto;
     font-size: 1.1em;
     font-family: '微软雅黑';
     color: #aaa;
@@ -178,7 +175,7 @@
         display: inline-block;
         width: 13px;
         height: 13px;
-        background: url("../../static/images/check.jpg") no-repeat;
+        /*background: url("../../static/images/check.jpg") no-repeat;*/
         margin-right: 5px;
       }
     }
@@ -214,7 +211,7 @@
 
       .left-line, .right-line {
         height: 1px;
-        width: 34.666%;
+        width: 30.666%;
         background-color: #e4e4e8;
         margin-top: 10px;
       }
@@ -239,15 +236,15 @@
         height: 28px;
         cursor: pointer;
         margin: 0 11.333%;
-        &:first-child {
+        /*&:first-child {
           background: url(@url) no-repeat 0 0;
-        }
-        &:nth-child(2) {
+        }*/
+        /*&:nth-child(2) {
           background: url(@url) no-repeat 0 -28px;
         }
         &:last-child {
           background: url(@url) no-repeat 0 -56px;
-        }
+        }*/
       }
     }
 
