@@ -6,16 +6,17 @@
 
 <template>
   <div class="contain">
+    <router-link to="/hotpost" tag="h1">话题列表</router-link>
     <div class="warp" v-for="list in data.list">
       <div class="warp-left" title="回复">{{list.response}}</div>
       <div class="warp-right">
         <div class="title">
-          <h2>{{list.article_name}}</h2>
-          <p class="p"><span></span>{{list.author}}</p>
+          <router-link to="{path: 'article', query: {article_id: list.article_id}}" tag="h2">{{list.article_name}}</router-link>
+          <router-link to="{path: 'user', query: {author_id: data.author_id}}" tag="p" class="p"><span></span>{{list.author}}</router-link>
         </div>
         <div class="main">
           <p>{{list.content}}</p>
-          <p class="p"><span></span>{{list.latest_reply}}</p>
+          <router-link to="{path: 'replycomment', query: {latest_reply_id: data.latest_reply_id}}" tag="p" class="p"><span></span>{{list.latest_reply}}</router-link>
           <div class="images" v-if="list.img.attr">
             <img :src="list.img.url">
           </div>
@@ -26,48 +27,11 @@
 </template>
 
 <script>
-
+  import getCGI from '../../getCGI/Hotpost'
   let data = {
-    list: [
-      {
-        response: 111,
-        article_name: '我的第一条正式帖',
-        article_id: 'oxks',
-        author: 'Esan讯粉',
-        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
-        latest_reply: '但依然有人也有',
-        img: {
-          attr: true,
-          url: '../../static/images/backtop.png'
-        }
-      },
-      {
-        response: 111,
-        article_name: '我的第一条正式帖',
-        article_id: 'oxks',
-        author: 'Esan讯粉',
-        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
-        latest_reply: '但依然有人也有',
-        img: {
-          attr: false,
-          url: ''
-        }
-      },
-      {
-        response: 111,
-        article_name: '我的第一条正式帖',
-        article_id: 'oxks',
-        author: 'Esan讯粉',
-        content: '开学到现在还没发过什么贴呢，然而我只爱吃。所以这是一个美食贴。fdvfdbf',
-        latest_reply: '但依然有人也有',
-        img: {
-          attr: false,
-          url: ''
-        }
-      }
-    ]
+    list: []
   }
-
+  getCGI(data)
   export default {
     name: 'hotpost',
     data() {
@@ -81,7 +45,7 @@
 <style lang="less">
   .contain {
 
-    //min-width: 680px;
+    background-color: #fff;
     width: 50%;
     .clearfix {
       *zoom: 1;
@@ -117,7 +81,7 @@
       width: 10px;
       height: 10px;
       margin-right: 5%;
-      background: url("../../static/images/icon.png") no-repeat 0 @pos;
+      /*background: url("../../static/images/icon.png") no-repeat 0 @pos;*/
     }
 
     .p {
@@ -128,6 +92,14 @@
       cursor: pointer;
       .right;
       .text;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      cursor: pointer;
+      &:hover {
+        border-left: 2px solid #00BDCC;
+      }
     }
 
     .warp {
@@ -149,7 +121,7 @@
         text-align: center;
         margin: 2.2%;
         font-size: 0.8em;
-        background: url("../../static/images/pop.png") no-repeat;
+        /*background: url("../../static/images/pop.png") no-repeat;*/
 
       }
 
