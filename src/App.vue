@@ -1,12 +1,9 @@
 <template>
   <div id="app">
     <myheader></myheader>
-
     <div id="content">
-      <classification :empty="data.empty" :baseHeight="true"></classification>
-    
+      <router-view name="index"></router-view>
     </div>
-
     <myfooter :class="data.className"></myfooter>
     <backtop></backtop>
   </div>
@@ -17,8 +14,8 @@
 import myHeader from './components/public/myHeader.vue'
 import myFooter from './components/public/myFooter.vue'
 import Backtop from './components/public/Backtop.vue'
-import Classification from './components/public/Loading.vue'
-
+import Classification from './components/index/Index.vue'
+import Loading from './components/public/Loading.vue'
 
 let data = {
       className : "qqq",
@@ -31,7 +28,8 @@ export default {
     myheader : myHeader,
     myfooter : myFooter,
     backtop : Backtop,
-    classification : Classification
+    classification : Classification,
+    loading: Loading
   },
   data () {
       return {
@@ -45,9 +43,9 @@ setTimeout(() => data.empty = true, 5000)
 </script>
 
 <style>
-  #content{
-      width: 200px;
-      height: 100px;
+  #app{
+    min-width: 970px;
+    /*background-color: #E9E9E9;*/
   }
 
 </style>

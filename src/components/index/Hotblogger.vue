@@ -22,195 +22,12 @@
   </div>
 </template>
 <script>
+import getCGI from '../../getCGI/Hotblogger'
   let data = {
-    bloggerClasses : [
-      {
-        name : '发帖巨人',
-        active : true,
-        bloggers : [
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          }
-        ]
-      },
-      {
-        name : '神评侠',
-        active : false,
-        bloggers : [
-          {
-            name : '喜羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '喜羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '喜羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '喜羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '喜羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          }
-        ]
-      },
-      {
-        name : '人气队长',
-        active : false,
-        bloggers : [
-          {
-            name : '懒羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '懒羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '懒羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '懒羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '懒羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          }
-        ]
-      }
-    ],
-    thisbloggerClass : 
-      {
-        name : '发帖巨人',
-        active : true,
-        bloggers : [
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          },
-          {
-            name : '美羊羊',
-            classify : '运动',
-            imgurl : '',
-            bloggerurl : '#',
-            articlenum : 3,
-            fansnum : 30
-          }
-        ]
-      }
+    bloggerClasses : [],
+    thisbloggerClass : {}
   }
+  getCGI(data)
   export default {
     name: 'hotblogger',
     data() {
@@ -238,10 +55,12 @@
     @color: #00BDCC;
     @fontColor: #9C9E9D;
     @font-size: 14px;
-    width: 25%;
-    height: 355px;
+    width: 20%;
+    height: 340px;
     overflow: hidden;
     border-top: 1px solid #E7E7E7;
+    min-width: 210px;
+    background-color: #fff;
     .bloggerClasses {
       padding: 0;
       .bloggerClasses_li {
@@ -272,7 +91,6 @@
         clear: both;
         padding: 2%;
         div {
-          /*width: 20%;*/
           height: 40px;
           line-height: 40px;
           text-align: center;
