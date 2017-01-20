@@ -6,57 +6,28 @@
 
 <template>
   <div class="classification">
-    <p>话题分类</p>
-    <span>换一批</span>
-    <!-- <router-link tag="span" to="#">换一批</router-link> -->
+    <router-link tag="p" to="/classification">话题分类</router-link>
+    <router-link tag="span" to="/classification">换一批</router-link>
     <ul>
       <li v-for="classify in data.classifies">
-        <!-- <div><router-link src="../../static/images/classify.png"></router-link></div> -->
-        <!-- <router-link tag="span" to="#">{{classify.name}}</router-link> -->
-        <!-- <router-link tag="p" to="#">{{classify.intro}}</router-link> -->
-        <div><img src="../../static/images/classify.png"></div>
+        <div><img :src="classify.imgurl"></div>
         <span>{{classify.name}}</span>
         <p>{{classify.intro}}</p>
       </li>
+     
     </ul>
   </div>
 </template>
 
-<script>
+<script>  
+import getCGI from '../../getCGI/Classification'
+
   let data = {
-    classifies : [
-      {
-        name : '运动',
-        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-        imgurl : '',
-        addurl : ''
-      },
-      {
-        name : '娱乐',
-        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-        imgurl : '',
-        addurl : '/entertainment'
-      },
-      {
-        name : '健身',
-        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-        imgurl : '',
-        addurl : '/exercise'
-      },
-      {
-        name : '养生',
-        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-        imgurl : '',
-        addurl : '/health'
-      },
-      {
-        name : '阅读',
-        intro : '哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡哇卡卡卡卡',
-        imgurl : '',
-        addurl : '/read'
-      }
-    ]
+    classifies : [],
+    empty: false
   }
+  getCGI(data)
+
   export default {
     name: 'classification',
     data() {
@@ -73,16 +44,21 @@
     @hovercolor: #00BDCC;
     @font-size: 14px;
     width: 20%;
-    background-color: #F4F4F4;
-    min-width: 270px;
+    min-width: 210px;
+    height: 400px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 10px;
     >p {
+      cursor: pointer;
       color: @color - 20;
       font-size: @font-size + 5;
       font-weight:  bolder;
       padding-left: 2%;
-      margin-right: 3%;
+      margin-right: 40%;
       line-height: 40px;
       float: left;
+      margin-bottom: 0;
       &:hover{
         border-left:  3px solid #00BBCB;
       }
@@ -95,13 +71,15 @@
     }
     ul {
       clear: both;
+      margin-top: -10px;
       display: block;
       list-style-type: none;
       padding: 0;
+      height: 100%;
+      overflow: hidden;
       li {
         clear: both;
-        padding: 2%;
-        margin-bottom: 10px;
+        padding: 10px 2%;
         div {
           width: 15%;
           height: 43px;
@@ -109,7 +87,7 @@
           float: left;
           margin-right: 3%;
           img {
-            height: 43px;
+            height: 35px;
           }
         }
         span {
